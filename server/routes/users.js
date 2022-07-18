@@ -1,39 +1,26 @@
-const pgp = require('pg-promise')();
-const db = pgp(`postgres://stateless:${process.env.DB_PASSWORD}@${process.env.DATABASE_URL}:5432/sneakerspot`);
 const express = require('express');
 const router = express.Router();
 
 require('dotenv').config();
 
-
-db.one('SELECT * FROM users ORDER BY id ASC')
-  .then((data) => {
-    console.log('DATA:', data.value)
-  })
-  .catch((error) => {
-    console.log('ERROR:', error)
-  })
-
 const { Pool } = require('pg');
 const pool = new Pool({
     host: process.env.DB_URL,
     port: 5432,
-    user: 'stateless',
+    user: 'yzlnssfd',
     password: process.env.DB_PASSWORD,
-    database: 'sneakerspot'
+    database: 'yzlnssfd'
 });
 
 
 
 const getUsers = (request, response) => {
-  console.log(pool);
   pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
     if (error) {
-      console.log(error);
       response.status(error.code).send(error.message);
       // throw error
     }
-    response.status(200).json(results)
+    response.status(200).json(results.rows)
   })
 }
 
