@@ -1,9 +1,56 @@
 var express = require('express');
 var router = express.Router();
+const cloudinary = require('cloudinary');
 
-// should respond with all the sneakers in the database
+
+require('dotenv').config();
+
+const { Pool } = require('pg');
+const pool = new Pool({
+    host: process.env.DB_URL,
+    port: 5432,
+    user: 'yzlnssfd',
+    password: process.env.DB_PASSWORD,
+    database: 'yzlnssfd',
+    idleTimeoutMillis: 30000,
+    connectionTimeoutMillis: 2000,
+});
+
+cloudinary.config({
+    cloud_name: 'durevqv22',
+    api_key: '861146978244326',
+    api_secret: 'B5uJFxNANEXbrs8tU6YjYZuus3w'
+})
+
+router.post("/image-upload", (request, response) => {
+    // collected image from a user
+    const data = {
+      image: request.body.image,
+    }
+
+    // upload image here
+    cloudinary.uploader.upload(data.image)
+    .then((result) => {
+      response.status(200).send({
+        message: "success",
+        result,
+      });
+    }).catch((error) => {
+      response.status(500).send({
+        message: "failure",
+        error,
+      });
+    });
+
+});
+
 router.get('/', function(req, res, next) {
-  res.send('respond with all sneakers in db');
+    pool.query('SELECT * FROM sneakers ORDER BY id ASC', (error, results) => {
+        if (error) {
+            res.status(error.code).send(error.message);
+        }
+        res.status(200).json(results.rows)
+    });
 });
 
 // should respond with a single sneaker by id
@@ -11,9 +58,29 @@ router.get('/:id', function(req, res, next) {
     res.send('respond with a single sneaker by id');
 });
 
-// should create a new sneaker in the database
 router.post('/', function(req, res, next) {
-    res.send('create a new sneaker in the database');
+    pool.query('INSERT INTO sneakers (ownerid, title, size, color, wear, gender, description, box, imgurl, brand, originalprice, category) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12 )', 
+    [
+        req.body.ownerid, 
+        req.body.title, 
+        req.body.size, 
+        req.body.color,
+        req.body.wear, 
+        req.body.gender, 
+        req.body.description, 
+        req.body.box, 
+        req.body.imgurl, 
+        req.body.brand, 
+        req.body.originalprice, 
+        req.body.category
+    ], (error, results) => {
+        if (error) {
+            res.status(error.code).send(error.message);
+        }
+        console.log(results.rows);
+        console.log(results.fields);
+        res.status(201).send(results.rows);
+    });
 });
 
 // should update a sneaker by id
@@ -23,7 +90,15 @@ router.put('/:id', function(req, res, next) {
 
 // should delete a sneaker by id
 router.delete('/:id', function(req, res, next) {
-    res.send('delete a sneaker by id');
+    const id = req.params.id;
+    console.log(id, 'does it get here?');
+    pool.query('DELETE FROM sneakers WHERE id = $1', [id], (error, results) => {
+        if (error) {
+            res.status(error.code).send(error.message);
+        }
+        res.status(200).send({message: 'sneaker deleted'});
+    }
+    );
 });
 
 module.exports = router;
