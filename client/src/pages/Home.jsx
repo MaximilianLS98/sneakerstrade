@@ -29,10 +29,12 @@ const Home = () => {
             )}
             {loading ? <p>Loading...</p> : <div>
                 <h1>Sneakers</h1>
+                <div className="sneaker-card-container">
                 {sneakers.map(sneaker => {
                     return <Sneaker key={sneaker.id} sneaker={sneaker} />
                 })
                 }
+                </div> 
             </div>}
         </div>
     );

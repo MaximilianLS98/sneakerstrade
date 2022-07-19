@@ -7,20 +7,20 @@ const MainMenu = () => {
     const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
     return (
-        <nav>
-            <ul>
+        <nav className="main-nav">
+            <ul className="main-nav--list">
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/" className="main-nav--item" >Home</Link>
                 </li>
                 <li>
-                    <Link to="/create">Create Sneaker</Link>
+                    <Link to="/create" className="main-nav--item" >Create Sneaker</Link>
                 </li>
                 {isAuthenticated && <li>
-                    <Link to="/profile">Profile</Link>
+                    <Link to="/profile" className="main-nav--item" >Profile</Link>
                 </li>}
-                <li>
-                    <Link to="/login">Login</Link>
-                </li>
+                {!isAuthenticated && <li>
+                    <Link to="/login" className="main-nav--item" >Login</Link>
+                </li>}
             </ul>
         </nav>
     )

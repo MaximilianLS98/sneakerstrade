@@ -1,0 +1,48 @@
+header {
+    background-color: #263238;
+    padding: 20px;
+    text-align: center;
+}
+
+.header-title {
+    font-family: 'Red Hat Display';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 64px;
+    letter-spacing: -1px;
+    
+    /* ◇ Light / Main Color */
+    color: #ededed;
+
+    margin: 0 auto;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2em 2em;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.main-nav--list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    list-style-type: none;
+}
+
+.main-nav--item {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.main-nav--item:hover {
+    color: #c5c5c5;
+    text-decoration: underline;
+}
