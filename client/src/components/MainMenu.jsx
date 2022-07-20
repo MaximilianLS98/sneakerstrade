@@ -8,20 +8,20 @@ const MainMenu = () => {
 
     return (
         <nav className="main-nav">
-            <ul className="main-nav--list">
-                <li>
+            <div className="main-nav--list">
+                <p>
                     <Link to="/" className="main-nav--item" >Home</Link>
-                </li>
-                <li>
+                </p>
+                <p>
                     <Link to="/create" className="main-nav--item" >Create Sneaker</Link>
-                </li>
-                {isAuthenticated && <li>
+                </p>
+                {isAuthenticated && <p>
                     <Link to="/profile" className="main-nav--item" >Profile</Link>
-                </li>}
-                {!isAuthenticated && <li>
+                </p>}
+                {!isAuthenticated && <p>
                     <Link to="/login" className="main-nav--item" >Login</Link>
-                </li>}
-            </ul>
+                </p>}
+            </div>
         </nav>
     )
 }

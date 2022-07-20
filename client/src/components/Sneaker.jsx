@@ -1,13 +1,18 @@
 import React from "react";
 import shoeImg from "../assets/images/shoe.png"; 
+import { useDispatch } from "react-redux";
+import { deleteSneaker } from "../features/sneakers/sneakerSlice";
 
 const Sneaker = ({ sneaker }) => {
+
+    const dispatch = useDispatch();
 
     const removeSneaker = () => {
         fetch(`http://localhost:3000/sneakers/${sneaker.id}`, {
             method: "DELETE"
         }).then(res => res.json())
             .then(res => console.log(res))
+            .then(() => dispatch(deleteSneaker(sneaker.id)))
             .catch(err => console.log(err));
     }
 

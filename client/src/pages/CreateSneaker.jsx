@@ -1,7 +1,11 @@
 import React, { useState, useRef } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useDispatch } from "react-redux";
+import { addSneaker } from "../features/sneakers/sneakerSlice";
 
 const CreateSneaker = () => {
+
+    const dispatch = useDispatch();
 
     const infoChange = (e) => {console.log(e.target.files[0])};
 
@@ -19,7 +23,6 @@ const CreateSneaker = () => {
             }
         }
         values.ownerid = user.email;
-        console.log(values.imagepath);
         return values;
     }
 
@@ -43,11 +46,6 @@ const CreateSneaker = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-
-        const formData = new FormData(e.target);
-        formData.append("image", e.target.files[0]);
-        console.log(formData);
-
         setFormValues(getValues());
         window.localStorage.setItem("formValues", JSON.stringify(getValues()));
 
@@ -60,6 +58,7 @@ const CreateSneaker = () => {
             },
             body: JSON.stringify(getValues(user))
         }).then(res => res.json())
+        .then(res => { dispatch(addSneaker(res)); })
             .then(res => console.log(res))
             .catch(err => console.log(err));
     }

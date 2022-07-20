@@ -22,7 +22,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 2em 2em;
+    margin: 2em auto;
     width: 90%;
     max-width: 1200px;
 }
