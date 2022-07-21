@@ -9,17 +9,17 @@ const { Pool } = require('pg');
 const pool = new Pool({
     host: process.env.DB_URL,
     port: 5432,
-    user: 'yzlnssfd',
+    user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    database: 'yzlnssfd',
+    database: process.env.DB_DATABASE,
     idleTimeoutMillis: 30000,
     connectionTimeoutMillis: 2000,
 });
 
 cloudinary.config({
-    cloud_name: 'durevqv22',
-    api_key: '861146978244326',
-    api_secret: 'B5uJFxNANEXbrs8tU6YjYZuus3w'
+    cloud_name: process.env.CLOUDINARY_NAME,
+    api_key: process.env.CLOUDINARY_KEY,
+    api_secret: process.env.CLOUDINARY_SECRET
 })
 
 router.post("/image-upload", (request, response) => {

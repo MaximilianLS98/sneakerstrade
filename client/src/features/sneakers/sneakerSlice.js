@@ -54,5 +54,5 @@ export const sneakersSlice = createSlice({
     }
 });
 
-export const { setSneakers, deleteSneaker, addSneaker } = sneakersSlice.actions;
+export const { setSneakers, deleteSneaker, addSneaker, updateSneaker } = sneakersSlice.actions;
 export default sneakersSlice.reducer;

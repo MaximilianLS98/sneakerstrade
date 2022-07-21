@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useParams, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import shoeImg from "../assets/images/shoe.png";
+import { updateSneaker } from "../features/sneakers/sneakerSlice";
 
 const EditSneaker = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const sneakers = useSelector(state => state.sneakers);
     const sneaker = sneakers.sneakers.find(sneaker => {
         return sneaker.id === parseInt(id, 10);
@@ -35,7 +38,10 @@ const EditSneaker = () => {
             },
             body: JSON.stringify(formValue)
         }).then(res => res.json())
+        .then(res => { dispatch(updateSneaker(res)); })
             .catch(err => console.log(err));
+            navigate("/");
+
     }
 
     return (
