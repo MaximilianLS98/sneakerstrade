@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import SingleProduct from './pages/SingleProduct';
 import Login from './pages/Login';
 import CreateSneaker from './pages/CreateSneaker';
+import EditSneaker from './pages/EditSneaker';
 import Profilepage from './pages/Profilepage';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -21,6 +22,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/create" element={<CreateSneaker />} />
           <Route path="/profile" element={<Profilepage />} />
+          <Route path="/edit/:id" element={<EditSneaker />} />
         </Routes>
       </Router>
       <Footer />

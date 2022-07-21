@@ -1,41 +1,57 @@
-import { createSlice } from "@reduxjs/toolkit"; 
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const initialState = {
-    sneakers: [],
-    status: 'idle',
-    error: null
-}
+export const fetchSneakers = createAsyncThunk(
+    'sneakers/fetchSneakers',
+    async () => {
+        const response = await fetch('http://localhost:3000/sneakers');
+        const sneakers = await response.json();
+        return sneakers;
+    }
+);
 
-export const sneakerSlice = createSlice({
+export const sneakersSlice = createSlice({
     name: 'sneakers',
-    initialState,
+    initialState: {
+        sneakers: [],
+        status: 'idle',
+    },
     reducers: {
-        populateSneakers: (state, action) => {
-            console.log(action.payload, 'payload in populateSneakers')
+        setSneakers: (state, action) => {
             state.sneakers = action.payload;
-            return state
+            window.localStorage.setItem('sneakers', JSON.stringify(action.payload));
+        },
+        deleteSneaker: (state, action) => {
+            state.sneakers = state.sneakers.filter(sneaker => sneaker.id !== action.payload);
+            window.localStorage.setItem('sneakers', JSON.stringify(state.sneakers));
         },
         addSneaker: (state, action) => {
             state.sneakers.push(action.payload);
-            return state
+            window.localStorage.setItem('sneakers', JSON.stringify(state.sneakers));
         },
-        deleteSneaker: (state, action) => {
-            state.sneakers = state.sneakers.filter(sneaker => sneaker.id !== action.payload)
-            return state
+        updateSneaker: (state, action) => {
+            state.sneakers = state.sneakers.map(sneaker => {
+                if (sneaker.id === action.payload.id) {
+                    return action.payload;
+                }
+                return sneaker;
+            });
+            window.localStorage.setItem('sneakers', JSON.stringify(state.sneakers));
         },
-        fetchSneakersStart: (state) => {
-            state.status = 'loading';
-        },
-        fetchSneakersSuccess: (state, action) => {
-            state.sneakers = action.payload;
-            state.status = 'idle';
-        },
-        fetchSneakersFailure: (state, action) => {
-            state.error = action.payload;
-            state.status = 'error';
-        }
     },
+    extraReducers: builder => {
+        builder
+            .addCase(fetchSneakers.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(fetchSneakers.fulfilled, (state, action) => {
+                state.status = 'idle';
+                state.sneakers = action.payload;
+            })
+            .addCase(fetchSneakers.rejected, (state) => {
+                state.status = 'error';
+            });
+    }
 });
 
-    export const { populateSneakers, fetchSneakersStart, fetchSneakersSuccess, fetchSneakersFailure, addSneaker, deleteSneaker } = sneakerSlice.actions;
-    export default sneakerSlice.reducer;
+export const { setSneakers, deleteSneaker, addSneaker } = sneakersSlice.actions;
+export default sneakersSlice.reducer;

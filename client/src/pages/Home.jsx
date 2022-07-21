@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Sneaker from "../components/Sneaker";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useDispatch, useSelector } from "react-redux";
-import { populateSneakers } from "../features/sneakers/sneakerSlice";
+import { fetchSneakers } from "../features/sneakers/sneakerSlice";
 
 const Home = () => {
     const [loading, setLoading] = useState(true);
@@ -15,16 +15,11 @@ const Home = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        fetch("http://localhost:3000/sneakers")
-            .then(res => res.json())
-            .then(res => {
-                window.localStorage.setItem("sneakers", JSON.stringify(res));
-                res.type = 'populateSneakers';
-                dispatch(populateSneakers(res));
-                setLoading(false);
-            }
-            )
-            .catch(err => console.log(err));
+        const getSneakers = async () => {
+            await dispatch(fetchSneakers());
+        }
+        getSneakers();
+        setLoading(false);
     }, []);
 
     return (

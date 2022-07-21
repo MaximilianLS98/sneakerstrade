@@ -69,24 +69,37 @@ const CreateSneaker = () => {
     // }
 
     return (
-        <div className="sneakerForm">
-            <form action="" id="form" ref={form} onSubmit={(e) => submitHandler(e)} encType="multitype/form-data" >
-                <input type="text" placeholder="Title" name="title" />
-                <input type="text" placeholder="Description" name="description" />
+        <div className="form-style-5">
+            <form className="sneakerForm-container" action="" id="form" ref={form} onSubmit={(e) => submitHandler(e)} encType="multitype/form-data" >
+                <div className="sneakerForm--tandd">
+                    <input type="text" placeholder="Title" name="title" />
+                    <input type="text" placeholder="Description" name="description" />
+                </div>
+                <label>Size</label>
                 <select name="size" id="size">
                     <option value="32">32</option>
+                    <option value="33">33</option>
                     <option value="34">34</option>
+                    <option value="35">35</option>
                     <option value="36">36</option>
+                    <option value="37">37</option>
                     <option value="38">38</option>
+                    <option value="39">39</option>
                     <option value="40">40</option>
+                    <option value="41">41</option>
                     <option value="42">42</option>
+                    <option value="43">43</option>
                     <option value="44">44</option>
+                    <option value="45">45</option>
                     <option value="46">46</option>
+                    <option value="46">47</option>
+                    <option value="46">48</option>
                 </select>
                 <input type="text" placeholder="Brand" name="brand" />
                 <input type="text" placeholder="Original Price" name="originalprice" />
-                <label htmlFor="box">In Original Box</label>
+                <label htmlFor="box">In Original Box
                 <input type="checkbox" name="box" id="box" />
+                </label>
                 <select name="wear" id="wear">
                     <option value="unused">Unused</option>
                     <option value="worn">Worn</option>
@@ -95,12 +108,15 @@ const CreateSneaker = () => {
                 <input type="text" placeholder="Color" name="color" />
                 <input type="text" placeholder="Category" name="category" />
                 <fieldset name="gender">
-                    <label htmlFor="gender">Masculine</label>
-                    <input type="radio" name="box" id="gender" value="masculine" />
-                    <label htmlFor="box">Feminine</label>
-                    <input type="radio" name="box" id="gender" value="feminine" />
-                    <label htmlFor="box">Unisex</label>
-                    <input type="radio" name="box" id="gender" value="unisex" />
+                    <label>Masculine
+                    <input type="radio" name="gender" id="masc" value="masculine" />
+                    </label>
+                    <label>Feminine
+                    <input type="radio" name="gender" id="fem" value="feminine" />
+                    </label>
+                    <label>Unisex
+                    <input type="radio" name="gender" id="uni" value="unisex" />
+                    </label>
                 </fieldset>
                 <input type="file" name="imagepath" accept="image/*" onChange={infoChange}/>
                 <button type="submit">List Sneaker</button>

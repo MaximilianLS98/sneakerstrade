@@ -84,8 +84,27 @@ router.post('/', function(req, res, next) {
 });
 
 // should update a sneaker by id
-router.put('/:id', function(req, res, next) {
-    res.send('update a sneaker by id');
+router.patch('/:id', function(req, res, next) {
+  console.log('trying to update the sneaker', req.body.title)
+    const id = req.params.id;
+    console.log(id);
+    const { title, size, color, wear, gender, description, box, brand, originalprice, category } = req.body
+  
+    try { 
+    pool.query(
+      'UPDATE sneakers SET title = $1, size = $2, color = $3, wear = $4, gender = $5, description = $6, box = $7, brand = $8, originalprice = $9, category = $10 WHERE id = $11',
+      [title, size, color, wear, gender, description, box, brand, originalprice, category, id],
+      (error, results) => {
+        if (error) {
+          console.log(error, 'shabang');
+          // throw error
+        }
+        res.status(200).send({message: `User modified with ID: ${id}`})
+      }
+    )
+  } catch (error) {
+    console.log(error, "easily searchable");
+  }
 });
 
 // should delete a sneaker by id
