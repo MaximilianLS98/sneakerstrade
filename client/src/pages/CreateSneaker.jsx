@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useDispatch } from "react-redux";
 import { addSneaker } from "../features/sneakers/sneakerSlice";
@@ -6,8 +7,9 @@ import { addSneaker } from "../features/sneakers/sneakerSlice";
 const CreateSneaker = () => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    const infoChange = (e) => {console.log(e.target.files[0])};
+    // const infoChange = (e) => {console.log(e.target.files[0])};
 
     const { user } = useAuth0();
 
@@ -44,6 +46,7 @@ const CreateSneaker = () => {
                 .catch(err => console.log(err));
     }
 
+    // refactor when time
     const submitHandler = (e) => {
         e.preventDefault();
         setFormValues(getValues());
@@ -61,12 +64,8 @@ const CreateSneaker = () => {
         .then(res => { dispatch(addSneaker(res)); })
             .then(res => console.log(res))
             .catch(err => console.log(err));
+        navigate("/");
     }
-    
-    // attempt to set up state with every change in the form fields
-    // const handleChange = (e) => {
-    //     setFormValues({ ...formValues, [e.target.name]: e.target.value });
-    // }
 
     return (
         <div className="form-style-5">
@@ -95,7 +94,18 @@ const CreateSneaker = () => {
                     <option value="46">47</option>
                     <option value="46">48</option>
                 </select>
-                <input type="text" placeholder="Brand" name="brand" />
+                <label>Brand</label>
+                <select name="brand" id="brand">
+                    <option value="Nike">Nike</option>
+                    <option value="Adidas">Adidas</option>
+                    <option value="Converse">Converse</option>
+                    <option value="Reebok">Reebok</option>
+                    <option value="Vans">Vans</option>
+                    <option value="Puma">Puma</option>
+                    <option value="Yeezy">Yeezy</option>
+                    <option value="New Balance">New Balance</option>
+                    <option value="Others">Others</option>
+                </select>
                 <input type="text" placeholder="Original Price" name="originalprice" />
                 <label htmlFor="box">In Original Box
                 <input type="checkbox" name="box" id="box" />
@@ -118,7 +128,7 @@ const CreateSneaker = () => {
                     <input type="radio" name="gender" id="uni" value="unisex" />
                     </label>
                 </fieldset>
-                <input type="file" name="imagepath" accept="image/*" onChange={infoChange}/>
+                <input type="file" name="imagepath" accept="image/*"/>
                 <button type="submit">List Sneaker</button>
             </form>
         </div>

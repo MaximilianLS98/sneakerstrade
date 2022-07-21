@@ -28,7 +28,6 @@ const EditSneaker = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log(formValue);
         fetch(`http://localhost:3000/sneakers/${sneaker.id}`, {
             method: "PATCH",
             headers: {
@@ -36,18 +35,39 @@ const EditSneaker = () => {
             },
             body: JSON.stringify(formValue)
         }).then(res => res.json())
-            .then(res => console.log(res))
             .catch(err => console.log(err));
     }
 
     return (
         <form onSubmit={(e) => submitHandler(e)}>
-        <div className="sneaker-card">
-        <img className="sneaker-card--img" src={shoeImg} alt="shoe" />
-        <input className="sneaker-card--title" type="text" value={formValue.title} name='title' onChange={handleChange} />
-        <input className="sneaker-card--description" type="text" value={formValue.description} name='description' onChange={handleChange} />
+        <div className="sneaker-card2">
+        <img className="sneaker-card--img2" src={shoeImg} alt="shoe" />
+        <label>Title
+        <input className="sneaker-card22 input2" type="text" value={formValue.title} name='title' onChange={handleChange} />
+        </label>
+        <label>Description
+        <input className="sneaker-card22" type="text" value={formValue.description} name='description' onChange={handleChange} />
+        </label>
+        <label>Brand
+        <input className="sneaker-card22" type="text" value={formValue.brand} name='brand' onChange={handleChange} />
+        </label>
+        <label>Original Price 
+        <input className="sneaker-card22" type="text" value={formValue.originalprice} name='originalprice' onChange={handleChange} />
+        </label>
+        <label>In Box
+        <input className="sneaker-card22" type="checkbox" value={formValue.box} name='box' onChange={handleChange}/>
+        </label>
+        <div className="sneaker-card22">
+        <label>Condition
+            <select className="sneaker-card--condition2" name="wear" id="wear" onChange={handleChange}>
+                    <option value="unused">Unused</option>
+                    <option value="worn">Worn</option>
+                    <option value="destroyed">Destroyed</option>
+            </select>
+            </label>
+        </div>
         <label>Size</label>
-                <select className="sneaker-card--size" value={formValue.size} onChange={handleChange} name="size" id="size">
+                <select className="sneaker-card--size2" value={formValue.size} onChange={handleChange} name="size" id="size">
                     <option value="32">32</option>
                     <option value="33">33</option>
                     <option value="34">34</option>
@@ -66,17 +86,6 @@ const EditSneaker = () => {
                     <option value="46">47</option>
                     <option value="46">48</option>
                 </select>
-        <input className="sneaker-card--brand" type="text" value={formValue.brand} name='brand' onChange={handleChange} />
-        <input className="sneaker-card--ogprice" type="text" value={formValue.originalprice} name='originalprice' onChange={handleChange} />
-        <p className="sneaker-card--id">ID: {sneaker.id}</p>
-        <div className="sneaker-card--conditon-info">
-            <input className="sneaker-card--box" type="checkbox" value={formValue.box} name='box' onChange={handleChange}/>
-            <select className="sneaker-card--condition" name="wear" id="wear" onChange={handleChange}>
-                    <option value="unused">Unused</option>
-                    <option value="worn">Worn</option>
-                    <option value="destroyed">Destroyed</option>
-            </select>
-        </div>
         <button className="sneaker-card--save" type="submit">Save</button>
     </div>
     </form>

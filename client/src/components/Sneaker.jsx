@@ -1,16 +1,17 @@
 import React from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import shoeImg from "../assets/images/shoe.png"; 
 import { useDispatch } from "react-redux";
 import { deleteSneaker } from "../features/sneakers/sneakerSlice";
 import { useAuth0 } from "@auth0/auth0-react";
+import '../sneaker.css';
+
 
 const Sneaker = ({ sneaker }) => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const location = useLocation();
-    const path = location.pathname;
+    const path = useLocation().pathname;
 
     const { user } = useAuth0();
 
@@ -23,42 +24,29 @@ const Sneaker = ({ sneaker }) => {
             .catch(err => console.log(err));
     }
 
-    const redirect = (e) => {
-        e.preventDefault();
-        navigate(`/sneaker/${sneaker.id}`);
-    }
-
-    // const updateSneaker = (e) => {
-        // fetch(`http://localhost:3000/sneakers/${sneaker.id}`, {
-        //     method: "PATCH",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify({
-
+    const editAndDelete = path === '/profile' ? (user?.email === sneaker.ownerid &&
+        <>
+        <input  type="button" value="Update" onClick={() => navigate(`/edit/${sneaker.id}`)} />
+        <input type="button" value="Delete" onClick={(e) => removeSneaker(e)} />
+        </>) : null;
 
     return (
-        <div className="sneaker-card">
-            <img className="sneaker-card--img" src={shoeImg} alt="shoe" onClick={(e) => redirect(e) } />
-            <h1 className="sneaker-card--title">{sneaker.title}</h1>
-            <h3 className="sneaker-card--description">{sneaker.description}</h3>
-            <p className="sneaker-card--size">Size: {sneaker.size}</p>
-            <p className="sneaker-card--brand">Brand: {sneaker.brand}</p>
-            <p className="sneaker-card--ogprice">Original price: {sneaker.originalprice}</p>
-            <p className="sneaker-card--id">ID: {sneaker.id}</p>
-            <p>Contact: {sneaker.ownerid}</p>
-            <div className="sneaker-card--conditon-info">
-                <p className="sneaker-card--box">In Box: {sneaker.box}</p>
-                <p className="sneaker-card--condition">Condition: {sneaker.wear}</p>
+        <div className="container">
+            <div className="card">
+                <div className="imgBx">
+                    <img className="sneaker-card--img" src={shoeImg} alt="shoe" />
+                </div>
+                <div className="contentBx">
+                    <h2>{sneaker.title}</h2>
+                    <div className="size">
+                        <h3>Size: </h3>
+                        <span> {sneaker.size}</span>
+                    </div>
+                    { editAndDelete }
+                    <br></br>
+                    <Link to={`/sneaker/${sneaker.id}`}>View</Link>
+                </div>
             </div>
-            {/* { path === '/profile' && 
-                <><input className="sneaker-card--update" type="button" value="Update" />
-                <input className="sneaker-card--delete" type="button" value="delete" onClick={(e) => removeSneaker(e)} /></>
-            } */}
-            { user?.email === sneaker.ownerid &&
-                <><input className="sneaker-card--update" type="button" value="Update" onClick={() => navigate(`/edit/${sneaker.id}`)} />
-                <input className="sneaker-card--delete" type="button" value="delete" onClick={(e) => removeSneaker(e)} /></>
-            }
         </div>
     );
 }

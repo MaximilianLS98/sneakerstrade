@@ -6,12 +6,13 @@ import Login from './pages/Login';
 import CreateSneaker from './pages/CreateSneaker';
 import EditSneaker from './pages/EditSneaker';
 import Profilepage from './pages/Profilepage';
+import BrandPage from './pages/BrandPage';
+import FourOhFour from './pages/404';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css';
 
 function App() {
-  console.log(process.env.NODE_ENV);
   return (
     <div className="App">
       <Router>
@@ -23,6 +24,8 @@ function App() {
           <Route path="/create" element={<CreateSneaker />} />
           <Route path="/profile" element={<Profilepage />} />
           <Route path="/edit/:id" element={<EditSneaker />} />
+          <Route path="/sneakers/:brand" element={<BrandPage />} />
+          <Route path="*" element={<FourOhFour />} />
         </Routes>
       </Router>
       <Footer />

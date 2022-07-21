@@ -46,3 +46,14 @@ header {
     color: #c5c5c5;
     text-decoration: underline;
 }
+
+@media (min-width: 768px) {
+    .main-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-nav--item{
+        font-size: 30px;
+    }
+}

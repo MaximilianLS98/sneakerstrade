@@ -10,18 +10,20 @@ const Profilepage = () => {
     const [ userMetadata, setUserMetadata ] = useState(null);
 
     const sneakers = useSelector(state => state.sneakers);
-    console.log(sneakers);
 
     const yourListings = sneakers.sneakers.filter(sneaker => {
         return sneaker.ownerid === user.email;
     });
+
+    const username = user.nickname;
+    const capitalizedUsername = username.charAt(0).toUpperCase() + username.slice(1);
 
     return (
         <div className="profilepage">
             {isAuthenticated && (
                 <section>
                 <div>
-                    <h1>Welcome, {user.nickname}</h1>
+                    <h1>Welcome, {user.given_name || capitalizedUsername}</h1>
                     <p>Your email is {user.email}</p>
                     <Logoutbutton />
                 </div>

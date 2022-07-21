@@ -5,6 +5,7 @@ export const fetchSneakers = createAsyncThunk(
     async () => {
         const response = await fetch('http://localhost:3000/sneakers');
         const sneakers = await response.json();
+        window.localStorage.setItem('sneakers', JSON.stringify(sneakers));
         return sneakers;
     }
 );
@@ -12,7 +13,7 @@ export const fetchSneakers = createAsyncThunk(
 export const sneakersSlice = createSlice({
     name: 'sneakers',
     initialState: {
-        sneakers: [],
+        sneakers: window.localStorage.getItem('sneakers') ? JSON.parse(window.localStorage.getItem('sneakers')) : [],
         status: 'idle',
     },
     reducers: {
