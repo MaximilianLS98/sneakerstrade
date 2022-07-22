@@ -25,6 +25,7 @@ const Home = () => {
 
     return (
         <div className="sneakerContainer">
+            <h1 className="centered-text blue-heading">All Sneakers</h1>
             {isAuthenticated && (
                 <div>
                     {/* <h1>Welcome, {user.nickname}</h1> */}

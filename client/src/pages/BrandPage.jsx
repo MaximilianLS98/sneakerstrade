@@ -24,7 +24,7 @@ const BrandPage = () => {
     });
     return (
         <div className="brand-page">
-            <h1>{brand}</h1>
+            <h1 className="centered-text blue-heading">{brand}</h1>
             <BrandButtons />
             <div className="sneaker-card-container">
             {brandSneakers.map(sneaker => {
