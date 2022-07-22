@@ -5,7 +5,6 @@ const BrandButtons = () => {
     const navigate = useNavigate();
     const location = useLocation(); 
     const path = location.pathname; 
-    console.log(path);
     
     return (
         <div className="brand-buttons">
