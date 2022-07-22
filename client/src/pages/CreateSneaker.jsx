@@ -3,8 +3,18 @@ import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useDispatch } from "react-redux";
 import { addSneaker } from "../features/sneakers/sneakerSlice";
+import { WidgetLoader, Widget } from "react-cloudinary-upload-widget";
 
 const CreateSneaker = () => {
+    const [url, setUrl] = useState("");
+
+    
+    const successCallBack = (e) => {
+        console.log(e, "this is callback");
+        console.log(e.info.secure_url, "this is secure url");
+        const secureUrl = e.info.secure_url;
+        setUrl(secureUrl);
+    }
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -128,7 +138,47 @@ const CreateSneaker = () => {
                     <input type="radio" name="gender" id="uni" value="unisex" />
                     </label>
                 </fieldset>
-                <input type="file" name="imagepath" accept="image/*"/>
+                <WidgetLoader />
+                <Widget 
+                    cloudName={"durevqv22"}
+                    uploadPreset={"sneaker-images"}
+                    multiple={false}
+                    buttonText={"Upload Image"}
+                    sources={["local", "url", "camera"]}
+                    resourceType={"image"}
+                    folder={"sneakers"}
+                    cropping={false}
+                    loggin={true}
+                    use_fileName={false}
+                    destroy={true}
+                    background_removal={"cloudinary_ai"}
+                    onSuccess={successCallBack}
+                    widgetStyles={{
+                        palette: {
+                          window: '#737373',
+                          windowBorder: '#FFFFFF',
+                          tabIcon: '#FF9600',
+                          menuIcons: '#D7D7D8',
+                          textDark: '#DEDEDE',
+                          textLight: '#FFFFFF',
+                          link: '#0078FF',
+                          action: '#FF620C',
+                          inactiveTabIcon: '#B3B3B3',
+                          error: '#F44235',
+                          inProgress: '#0078FF',
+                          complete: '#20B832',
+                          sourceBg: '#909090'
+                        },
+                        fonts: {
+                          default: null,
+                          "'Fira Sans', sans-serif": {
+                            url: 'https://fonts.googleapis.com/css?family=Fira+Sans',
+                            active: true
+                          }
+                        }
+                      }}
+                      ></Widget>
+                      <input readOnly="readonly" type="text" name="imgUrl" id="imgUrl" value={url}></input>
                 <button type="submit">List Sneaker</button>
             </form>
         </div>
