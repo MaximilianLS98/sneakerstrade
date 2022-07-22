@@ -11,6 +11,14 @@ body {
   /* text-align: center; */
 }
 
+.centered-text {
+  text-align: center;
+}
+
+.profile-picture {
+  max-width: 300px;
+}
+
 .sneaker-card-container {
   display: flex;
   flex-direction: row;

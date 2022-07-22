@@ -24,11 +24,12 @@ const Profilepage = () => {
                 <section>
                 <div>
                     <h1>Welcome, {user.given_name || capitalizedUsername}</h1>
+                    <img className="profile-picture" src="https://media.istockphoto.com/vectors/male-profile-flat-blue-simple-icon-with-long-shadow-vector-id522855255?k=20&m=522855255&s=612x612&w=0&h=fLLvwEbgOmSzk1_jQ0MgDATEVcVOh_kqEe0rqi7aM5A=" alt="default profile" />
                     <p>Your email is {user.email}</p>
                     <Logoutbutton />
                 </div>
                 <div>
-                    <h1>Your Sneakers</h1>
+                    <h1 className="centered-text">Your Sneakers</h1>
                     <div className="sneaker-card-container">
                     {yourListings.map(sneaker => {
                         return <Sneaker key={sneaker.id} sneaker={sneaker} />
