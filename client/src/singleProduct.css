@@ -1,4 +1,4 @@
-.container {
+.singleproduct-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 15px;
@@ -63,14 +63,14 @@
 }
 
 @media screen and (min-width: 490px) {
-    .container{
+    .singleproduct-container{
         display: flex;
         height: 55vh;
     }
 }
 
 @media screen and (min-width: 1100px) {
-    .container{
+    .singleproduct-container{
         margin-left: 90px;
         width: 100%;
     }

@@ -1,7 +1,7 @@
 import React from "react";
 import Sneaker from "../components/Sneaker";
 import shoeImg from "../assets/images/shoe.png";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import '../singleProduct.css';
 
@@ -16,7 +16,7 @@ const SingleProduct = () => {
     const navigate = useNavigate();
     
     return (
-        <section className="container">
+        <section className="singleproduct-container">
             <div className="left-column">
                 <img src={shoeImg} alt={sneaker.name} />
             </div>
@@ -30,7 +30,7 @@ const SingleProduct = () => {
                     <p>Size: {sneaker.size}</p>
                     <p>Wear: {sneaker.wear}</p>
                     <p>In Box: {sneaker.box}</p>
-                    <p>Owner: {sneaker.ownerid}</p>
+                    <p>Owner: <Link to={`user/${sneaker.ownerid}`}>{sneaker.ownerid}</Link></p>
                 </div>
                 <div className="product-price">
                     <span>Original price: {sneaker.originalprice}</span>

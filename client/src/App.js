@@ -7,6 +7,7 @@ import CreateSneaker from './pages/CreateSneaker';
 import EditSneaker from './pages/EditSneaker';
 import Profilepage from './pages/Profilepage';
 import BrandPage from './pages/BrandPage';
+import UserProfiles from './pages/UserProfiles';
 import FourOhFour from './pages/404';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -23,6 +24,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/create" element={<CreateSneaker />} />
           <Route path="/profile" element={<Profilepage />} />
+          <Route path="/user/:id" element={<UserProfiles />} />
           <Route path="/edit/:id" element={<EditSneaker />} />
           <Route path="/sneakers/:brand" element={<BrandPage />} />
           <Route path="*" element={<FourOhFour />} />
