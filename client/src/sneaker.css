@@ -6,13 +6,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #131313;
-} */
+
 input {
     border: none; /* Removes the default border */
   }
@@ -83,7 +77,7 @@ input {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(20deg);
-    width: 270px;
+    width: auto;
 }
 
 .container .card .contentBx {

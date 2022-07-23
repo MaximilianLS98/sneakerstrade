@@ -1,6 +1,5 @@
 import React from "react";
-import Sneaker from "../components/Sneaker";
-import shoeImg from "../assets/images/shoe.png";
+// import shoeImg from "../assets/images/shoe.png";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import InboxComponent from "../components/InboxComponent";
