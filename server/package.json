@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"  },
+    "dev": "nodemon ./bin/www"
+  },
   "dependencies": {
     "cloudinary": "^1.30.0",
     "cookie-parser": "~1.4.4",
@@ -13,12 +14,10 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "pg": "^8.7.3",
-    "dotenv": "^16.0.1"
-
+    "pg": "^8.7.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.19",
-    "dotenv": "^16.0.1"
+    "dotenv": "^16.0.1",
+    "nodemon": "^2.0.19"
   }
 }
