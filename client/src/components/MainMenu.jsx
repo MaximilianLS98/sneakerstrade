@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const MainMenu = () => {
@@ -10,14 +10,14 @@ const MainMenu = () => {
         <nav className="main-nav">
             <div className="main-nav--list">
                 <p>
-                    <Link to="/" className="main-nav--item" >Home</Link>
+                    <NavLink to="/" className="main-nav--item" >Home</NavLink>
                 </p>
                 {isAuthenticated && <>
                 <p>
-                    <Link to="/create" className="main-nav--item" >Create Sneaker</Link>
+                    <NavLink className={( { isActive } ) => (isActive) ? 'active main-nav--item' : 'inactive main-nav--item'} to="/create" >Create Sneaker</NavLink>
                 </p>
                 <p>
-                    <Link to="/profile" className="main-nav--item" >Profile</Link>
+                    <NavLink to="/profile" className="main-nav--item" >Profile</NavLink>
                 </p>
                 </>}
                 {!isAuthenticated && <p>

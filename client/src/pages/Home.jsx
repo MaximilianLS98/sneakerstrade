@@ -35,7 +35,7 @@ const Home = () => {
             )}
             {loading ? <p>Loading...</p> : <div>
                 <BrandButtons />
-                <h1 className="centered-text brand-heading">All Sneakers</h1>
+                {/* <h1 className="centered-text brand-heading">All Sneakers</h1> */}
                 <div className="sneaker-card-container">
                 {sneakerState.sneakers.map(sneaker => {
                     return <Sneaker key={sneaker.id} sneaker={sneaker} />
