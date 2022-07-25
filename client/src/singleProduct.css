@@ -3,7 +3,12 @@
     margin: 0 auto;
     padding: 15px;
     font-family: 'Roboto', sans-serif;
+    justify-content: center;
   }
+
+.singleProduct-image {
+    max-width: 300px;
+}
 
 .left-column {
     width: 65%;
@@ -66,6 +71,10 @@
     .singleproduct-container{
         display: flex;
         height: 55vh;
+        justify-content: center;
+    }
+    .singleproduct-image {
+        max-width: 500px;
     }
 }
 
@@ -73,6 +82,10 @@
     .singleproduct-container{
         margin-left: 90px;
         width: 100%;
+        justify-content: center;
+    }
+    .singleProduct-image {
+        max-width: 500px;
     }
 }
     

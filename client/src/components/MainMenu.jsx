@@ -12,12 +12,14 @@ const MainMenu = () => {
                 <p>
                     <Link to="/" className="main-nav--item" >Home</Link>
                 </p>
+                {isAuthenticated && <>
                 <p>
                     <Link to="/create" className="main-nav--item" >Create Sneaker</Link>
                 </p>
-                {isAuthenticated && <p>
+                <p>
                     <Link to="/profile" className="main-nav--item" >Profile</Link>
-                </p>}
+                </p>
+                </>}
                 {!isAuthenticated && <p>
                     <Link to="/login" className="main-nav--item" >Login</Link>
                 </p>}

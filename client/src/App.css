@@ -35,6 +35,11 @@ body {
   width: 90%;
 }
 
+.sneakerContainer {
+  margin-top: 20px;
+  /* height: 70vh; */
+}
+
 @import url('http://fonts.cdnfonts.com/css/sneakers');
 
 .sneaker-card {
@@ -463,4 +468,10 @@ body {
   margin: 0 auto;
   width: 90%;
   text-align: center;
+}
+
+@media screen and (min-width: 1100px) {
+  .sneakerContainer {
+    height: 80vh;
+  }
 }

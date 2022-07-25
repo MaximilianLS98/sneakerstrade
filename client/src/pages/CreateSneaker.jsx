@@ -35,6 +35,7 @@ const CreateSneaker = () => {
             }
         }
         values.ownerid = user.email;
+        values.imgurl = url
         return values;
     }
 
@@ -178,7 +179,7 @@ const CreateSneaker = () => {
                         }
                       }}
                       ></Widget>
-                      <input readOnly="readonly" type="text" name="imgUrl" id="imgUrl" value={url}></input>
+                      <input readOnly="readonly" type="text" name="imgurl" id="imgurl" value={url}></input>
                 <button type="submit">List Sneaker</button>
             </form>
         </div>

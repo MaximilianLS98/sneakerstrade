@@ -34,7 +34,7 @@ const Sneaker = ({ sneaker }) => {
         <div className="container">
             <div className="card">
                 <div className="imgBx">
-                    <img className="sneaker-card--img" src={shoeImg} alt="shoe" />
+                    <img className="sneaker-card--img" src={sneaker.imgurl} alt="sneaker" />
                 </div>
                 <div className="contentBx">
                     <h2>{sneaker.title}</h2>

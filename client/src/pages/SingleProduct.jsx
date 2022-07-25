@@ -18,7 +18,7 @@ const SingleProduct = () => {
     return (
         <section className="singleproduct-container">
             <div className="left-column">
-                <img src={shoeImg} alt={sneaker.name} />
+                <img className="singleProduct-image" src={sneaker.imgurl} alt={sneaker.name} />
             </div>
             <div className="right-column">
                 <p className="brand">Brand: {sneaker.brand}</p>
