@@ -21,7 +21,8 @@ const MainMenu = () => {
                 </p>
                 </>}
                 {!isAuthenticated && <p>
-                    <Link to="/login" className="main-nav--item" >Login</Link>
+                    <Link to="#" className="main-nav--item" onClick={() => loginWithRedirect()}>Login</Link>
+                    {/* <Link to="/login" className="main-nav--item" >Login</Link> */}
                 </p>}
             </div>
         </nav>
