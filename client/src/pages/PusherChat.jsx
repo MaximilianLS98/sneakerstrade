@@ -20,7 +20,7 @@ const PusherChat = () => {
 
     const sendMessage = (e) => {
         e.preventDefault();
-        fetch('http://localhost:3000/chat', {
+        fetch('https://sneakerspot-server.herokuapp.com/chat', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
