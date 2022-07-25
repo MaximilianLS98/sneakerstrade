@@ -3,73 +3,44 @@ const router = express.Router();
 
 require('dotenv').config();
 
-const { Pool } = require('pg');
-const pool = new Pool({
-    host: process.env.DB_URL,
-    port: 5432,
-    user: 'yzlnssfd',
-    password: process.env.DB_PASSWORD,
-    database: 'yzlnssfd',
-    idleTimeoutMillis: 30000,
-    connectionTimeoutMillis: 2000
+const axios = require("axios").default;
+
+const options = {
+  method: 'POST',
+  url: 'https://YOUR_DOMAIN/oauth/token',
+  headers: {'content-type': 'application/x-www-form-urlencoded'},
+  data: new URLSearchParams({
+    grant_type: 'client_credentials',
+    client_id: process.env.AUTH0_CLIENT_ID,
+    client_secret: process.env.AUTH0_CLIENT_SECRET,
+    audience: process.env.AUTH0_AUDIENCE
+  })
+};
+
+const token = axios.request(options).then(function (response) {
+  console.log(response.data, 'this is the response data from axios auth0 call');
+  return response.data;
+}).catch(function (error) {
+  console.error(error);
 });
 
-
-
-const getUsers = (request, response) => {
-  pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
-    if (error) {
-      response.status(error.code).send(error.message);
-      // throw error
-    }
-    response.status(200).json(results.rows)
-  })
+const getUser = () => {
+  fetch(process.env.AUTH0_AUDIENCE + '/users', {
+    headers: {
+      'Authorization': 'Bearer ' + token.acces_token,
+      'Content-Type': 'application/json'
+      }
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      }
+    )
+    .catch(error => console.log(error));
 }
 
-
-router.get('/', function(req, res, next) {
-  // should get the users from the database, not accessible to normal users
-  getUsers(req, res);
-});
-
-router.get('/:id', function(req, res, next) {
-  // should get the user by id
-  res.send('respond with a single user by id');
-});
-
-router.post('/', function(req, res, next) {
-  // should create a new user in the database
-  pool.query('INSERT INTO users (username, password, email, firstname, lastname, address, city, state, zip, phone, role) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)',
-  [
-    req.body.username,
-    req.body.password,
-    req.body.email,
-    req.body.firstname,
-    req.body.lastname,
-    req.body.address,
-    req.body.city,
-    req.body.state,
-    req.body.zip,
-    req.body.phone,
-    req.body.role
-  ], (error, results) => {
-    if (error) {
-      res.status(error.code).send(error.message);
-      // throw error
-    }
-    res.status(201).send(results.rows);
-  }
-  );
-});
-
-router.put('/:id', function(req, res, next) {
-  // should update a user by id
-  res.send('update a user by id');
-});
-
-router.delete('/:id', function(req, res, next) {
-  // should delete a user by id
-  res.send('delete a user by id');
+router.get('/', (req, res) => {
+  return getUser();
 });
 
 module.exports = router;

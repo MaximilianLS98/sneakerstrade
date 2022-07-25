@@ -18,6 +18,8 @@ const Profilepage = () => {
     const username = user.nickname;
     const capitalizedUsername = username.charAt(0).toUpperCase() + username.slice(1);
 
+    console.log(user); // delete this before pushing
+
     return (
         <div className="profilepage">
             {isAuthenticated && (
