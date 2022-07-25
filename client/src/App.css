@@ -1,5 +1,5 @@
 body {
-  height: 100vh;
+  /* height: 100vh; */
   margin: 0;
 }
 
@@ -7,8 +7,13 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+
 .App {
   /* text-align: center; */
+}
+
+.root {
+  height: 100vh;
 }
 
 .centered-text {
@@ -17,8 +22,9 @@ body {
 
 .brand-heading {
   color: #263238;
-  text-decoration: underline;
-  font-size: 3em;
+  /* text-decoration: underline; */
+  font-size: 2.5em;
+  font-family: 'Roboto', sans-serif;
 }
 
 .profile-picture {
@@ -64,11 +70,10 @@ body {
   max-height: 107px;
   border-radius: 10px;
   margin: 0 auto; */
-  position: absolute;
+  /* position: absolute;
   width: 282px;
-  height: 107px;
   left: 54px;
-  top: 150px;
+  top: 150px; */
   transition: all 0.3s ease-in-out;
 }
 
@@ -472,6 +477,6 @@ body {
 
 @media screen and (min-width: 1100px) {
   .sneakerContainer {
-    height: 80vh;
+    /* height: 80vh; */
   }
 }
