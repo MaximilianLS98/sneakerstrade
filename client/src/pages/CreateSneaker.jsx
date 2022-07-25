@@ -34,6 +34,7 @@ const CreateSneaker = () => {
                 values[element.name] = element.value;
             }
         }
+        values.owner = user.nickname;
         values.ownerid = user.email;
         values.imgurl = url
         return values;

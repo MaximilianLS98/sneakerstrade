@@ -30,7 +30,7 @@ const SingleProduct = () => {
                     <p>Size: {sneaker.size}</p>
                     <p>Wear: {sneaker.wear}</p>
                     <p>In Box: {sneaker.box}</p>
-                    <p>Owner: <Link to={`user/${sneaker.ownerid}`}>{sneaker.ownerid}</Link></p>
+                    <p>Owner: <Link to={`user/${sneaker.owner || sneaker.ownerid}`}>{sneaker.owner || sneaker.ownerid}</Link></p>
                 </div>
                 <div className="product-price">
                     <span>Original price: {sneaker.originalprice}</span>
