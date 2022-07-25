@@ -3,6 +3,7 @@ import Sneaker from "../components/Sneaker";
 import shoeImg from "../assets/images/shoe.png";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import InboxComponent from "../components/InboxComponent";
 import '../singleProduct.css';
 
 const SingleProduct = () => {
@@ -12,11 +13,11 @@ const SingleProduct = () => {
     const sneaker = sneakers.sneakers.find(sneaker => {
         return sneaker.id === parseInt(id, 10);
     });
-
     const navigate = useNavigate();
     
     return (
         <section className="singleproduct-container">
+                <InboxComponent owner={sneaker.ownerid} name={sneaker.title}/>
             <div className="left-column">
                 <img className="singleProduct-image" src={sneaker.imgurl} alt={sneaker.name} />
             </div>
