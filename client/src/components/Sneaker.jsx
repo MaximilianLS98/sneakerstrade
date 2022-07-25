@@ -16,7 +16,7 @@ const Sneaker = ({ sneaker }) => {
     const { user } = useAuth0();
 
     const removeSneaker = () => {
-        fetch(`http://localhost:3000/sneakers/${sneaker.id}`, {
+        fetch(`https://sneakerspot-server.herokuapp.com/sneakers/${sneaker.id}`, {
             method: "DELETE"
         }).then(res => res.json())
             .then(res => console.log(res))

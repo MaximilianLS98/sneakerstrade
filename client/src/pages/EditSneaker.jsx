@@ -31,7 +31,7 @@ const EditSneaker = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        fetch(`http://localhost:3000/sneakers/${sneaker.id}`, {
+        fetch(`https://sneakerspot-server.herokuapp.com/sneakers/${sneaker.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"

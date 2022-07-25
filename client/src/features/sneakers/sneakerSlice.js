@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchSneakers = createAsyncThunk(
     'sneakers/fetchSneakers',
     async () => {
-        const response = await fetch('http://localhost:3000/sneakers');
+        const response = await fetch('https://sneakerspot-server.herokuapp.com/sneakers');
         const sneakers = await response.json();
         window.localStorage.setItem('sneakers', JSON.stringify(sneakers));
         return sneakers;

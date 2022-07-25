@@ -40,7 +40,7 @@ const CreateSneaker = () => {
     }
 
     const uploadImage = (path) => {
-        fetch("http://localhost:3000/sneakers/image-upload", {
+        fetch("https://sneakerspot-server.herokuapp.com/sneakers/image-upload", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -65,7 +65,7 @@ const CreateSneaker = () => {
 
         uploadImage(formValues.imagepath);
 
-        fetch("http://localhost:3000/sneakers", {
+        fetch("https://sneakerspot-server.herokuapp.com/sneakers", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
