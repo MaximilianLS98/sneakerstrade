@@ -11,6 +11,10 @@ body {
   /* text-align: center; */
 }
 
+.logo {
+  max-width: 250px;
+}
+
 .centered-text {
   text-align: center;
 }

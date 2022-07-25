@@ -1,11 +1,13 @@
 import React from "react";
 import MainMenu from "./MainMenu";
+import logo from "../assets/images/sneakerspotlogo.png";
+import whiteLogo from "../assets/images/logo.png";
 import '../header.css';
 
 const Header = () => {
     return (
         <header>
-            <h1 className="header-title">SneakerSpot</h1>
+            <img src={whiteLogo} className='logo' alt="sneakerspot logo" />
             <MainMenu />
         </header>
     );
