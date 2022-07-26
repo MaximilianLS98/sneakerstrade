@@ -13,29 +13,34 @@ const MainMenu = () => {
 
     return (
         <nav className="main-nav">
-            <div className="main-nav--list">
-                <p>
-                    <NavLink to="/" className="main-nav--item" >Home</NavLink>
+        <label className="label">
+        <input className=""type='checkbox'></input>
+        <span class="menu"> <span class="hamburger"></span> </span>
+        <div className="main-nav--list">
+            <p>
+                <NavLink to="/" className="main-nav--item" >Home</NavLink>
+            </p>
+            {isAuthenticated && <>
+            <p>
+                <NavLink className={( { isActive } ) => (isActive) ? 'active main-nav--item' : 'inactive main-nav--item'} to="/create" >Create Sneaker</NavLink>
+            </p>
+            <p>
+                <NavLink to="/profile" className="main-nav--item" >Profile</NavLink>
+            </p>
+            <p className='nav-item'>
+            <Logoutbutton logout={logout} />            
+            </p>
+            <p className='nav-item'>
+             <button className='button-messenger' onClick={moveToMessenger} >Messenger</button>
                 </p>
-                {isAuthenticated && <>
-                <p>
-                    <NavLink className={( { isActive } ) => (isActive) ? 'active main-nav--item' : 'inactive main-nav--item'} to="/create" >Create Sneaker</NavLink>
-                </p>
-                <p>
-                    <NavLink to="/profile" className="main-nav--item" >Profile</NavLink>
-                </p>
-                <div>
-                    <Logoutbutton logout={logout} />
-                    
-                </div>
-                <button className='button-messenger'onClick={moveToMessenger}>Messenger</button>
-                </>}
-                {!isAuthenticated && <p>
-                    <Link to="#" className="main-nav--item" onClick={() => loginWithRedirect()}>Login</Link>
-                    {/* <Link to="/login" className="main-nav--item" >Login</Link> */}
-                </p>}
-            </div>
-        </nav>
+            </>}
+            {!isAuthenticated && <p>
+                <Link to="#" className="main-nav--item" onClick={() => loginWithRedirect()}>Login</Link>
+                {/* <Link to="/login" className="main-nav--item" >Login</Link> */}
+            </p>}
+        </div>
+        </label>
+    </nav>
     )
 }
 
