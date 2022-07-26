@@ -1,6 +1,7 @@
 body {
   /* height: 100vh; */
   margin: 0;
+  overflow-x: hidden;
 }
 
 * {
@@ -45,8 +46,6 @@ body {
   margin-top: 20px;
   /* height: 70vh; */
 }
-
-@import url('http://fonts.cdnfonts.com/css/sneakers');
 
 .sneaker-card {
   /* display: flex; */
@@ -492,4 +491,19 @@ body {
   margin: 20px;
   font-size: 2rem;
   font-family: 'Roboto', sans-serif;
+}
+
+.blocking-div-hide {
+  display: none;
+  height: 0;
+  width: 0;
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+}
+
+.biggest-div {
+  height: 100vh;
+  width: 100vw;
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
 }

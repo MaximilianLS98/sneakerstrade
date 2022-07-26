@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import SingleProduct from './pages/SingleProduct';
@@ -13,13 +13,17 @@ import FourOhFour from './pages/404';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Messenger from './pages/Messenger';
+import Blocker from './components/Blocker';
 import './App.css';
 
+
 function App() {
+
   return (
     <div className="App">
       <Router>
       <Header />
+      <Blocker />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sneaker/:id" element={<SingleProduct />} />
@@ -30,8 +34,8 @@ function App() {
           <Route path="/edit/:id" element={<EditSneaker />} />
           <Route path="/sneakers/:brand" element={<BrandPage />} />
           <Route path="/chat" element={<PusherChat />} />
-          <Route path="*" element={<FourOhFour />} />
           <Route path="/messenger" element={<Messenger />} />
+          <Route path="*" element={<FourOhFour />} />
         </Routes>
       </Router>
       <Footer />

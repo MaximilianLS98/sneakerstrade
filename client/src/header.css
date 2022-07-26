@@ -4,6 +4,9 @@ header {
     text-align: center;
 }
 
+*, *:before, *:after 
+{ box-sizing: border-box; }
+
 .headerContainer {
     display: flex;
     flex-direction: row;
@@ -53,7 +56,7 @@ header {
     left: 50px;
     width: 30px;
     height: 2px;
-    background: #69D2e7;
+    background: #1BBFE9;
     display: block;
     -webkit-transform-origin: center;
     transform-origin: center;
@@ -69,7 +72,7 @@ header {
     display: block;
     width: 100%;
     height: 100%;
-    background: #69d2e7;
+    background: #1BBFE9;
   }
   
 .label .hamburger:before { top: -10px; }
