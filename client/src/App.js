@@ -12,6 +12,7 @@ import PusherChat from './pages/PusherChat';
 import FourOhFour from './pages/404';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Messenger from './pages/Messenger';
 import './App.css';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/sneakers/:brand" element={<BrandPage />} />
           <Route path="/chat" element={<PusherChat />} />
           <Route path="*" element={<FourOhFour />} />
+          <Route path="/messenger" element={<Messenger />} />
         </Routes>
       </Router>
       <Footer />
