@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Loginbutton from "../components/Loginbutton";
 import Logoutbutton from "../components/Logoutbutton";
 import Sneaker from "../components/Sneaker";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useSelector } from "react-redux";
+import InboxComponent from "../components/InboxComponentProfile";
 
 const Profilepage = () => {
     const { user, isAuthenticated } = useAuth0();
@@ -38,6 +39,8 @@ const Profilepage = () => {
                     })
                     }
                     </div>
+                    <InboxComponent />
+
                 </div>
                 </section>
 
