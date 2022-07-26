@@ -480,3 +480,8 @@ body {
     /* height: 80vh; */
   }
 }
+
+
+.chatbox-container {
+  height: 440px;
+}
