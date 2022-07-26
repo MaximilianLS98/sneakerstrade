@@ -484,4 +484,12 @@ body {
 
 .chatbox-container {
   height: 440px;
+  margin: 10px;
+}
+
+.welcome {
+  text-align: center;
+  margin: 20px;
+  font-size: 2rem;
+  font-family: 'Roboto', sans-serif;
 }

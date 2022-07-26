@@ -6,7 +6,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useSelector } from "react-redux";
 import InboxComponent from "../components/InboxComponentProfile";
 
+
 const Profilepage = () => {
+    
     const { user, isAuthenticated } = useAuth0();
     const [ userMetadata, setUserMetadata ] = useState(null);
 
@@ -26,20 +28,18 @@ const Profilepage = () => {
             {isAuthenticated && (
                 <section>
                 <div>
-                    <h1>Welcome, {user.given_name || capitalizedUsername}</h1>
-                    <img className="profile-picture" src="https://media.istockphoto.com/vectors/male-profile-flat-blue-simple-icon-with-long-shadow-vector-id522855255?k=20&m=522855255&s=612x612&w=0&h=fLLvwEbgOmSzk1_jQ0MgDATEVcVOh_kqEe0rqi7aM5A=" alt="default profile" />
-                    <p>Your email is {user.email}</p>
-                    <Logoutbutton />
+                    <h1 className='welcome'>Welcome, {user.given_name || capitalizedUsername}</h1>
+                    
+                    
                 </div>
                 <div>
-                    <h1 className="centered-text">Your Sneakers</h1>
+                    <h1 className="centered-text">Your collection</h1>
                     <div className="sneaker-card-container">
                     {yourListings.map(sneaker => {
                         return <Sneaker key={sneaker.id} sneaker={sneaker} />
                     })
                     }
                     </div>
-                    <InboxComponent />
 
                 </div>
                 </section>
