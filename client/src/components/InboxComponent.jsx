@@ -1,6 +1,8 @@
 import React, { useEffect, useRef} from "react";
 import Talk from "talkjs";
 import { useAuth0 } from "@auth0/auth0-react";
+import process from "process";
+require('dotenv').config();
 
 const InboxComponent = (props) => {
     const { user, isAuthenticated } = useAuth0();
@@ -30,7 +32,7 @@ const InboxComponent = (props) => {
                   });
 
                 window.talkSession = new Talk.Session({
-                    appId: 'tUVEWQMO',
+                    appId: process.env.TALKJS_SECRET,
                     me: me,
             });
             
