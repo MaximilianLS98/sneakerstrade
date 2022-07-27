@@ -1,13 +1,20 @@
 body {
   /* height: 100vh; */
   margin: 0;
-  overflow-x: hidden;
 }
 
 * {
   font-family: 'Roboto', sans-serif;
 }
 
+.brand-page {
+  min-height: 70vh;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 1rem;
+}
 
 .App {
   /* text-align: center; */
@@ -46,6 +53,8 @@ body {
   margin-top: 20px;
   /* height: 70vh; */
 }
+
+@import url('http://fonts.cdnfonts.com/css/sneakers');
 
 .sneaker-card {
   /* display: flex; */
@@ -111,7 +120,6 @@ body {
   line-height: 15px;
 
   color: #000000;
-
 }
 
 .sneaker-card--size {
@@ -124,7 +132,6 @@ body {
   line-height: 20px;
 
   color: #000000;
-
 }
 
 .sneaker-card--brand {
@@ -137,7 +144,6 @@ body {
   line-height: 20px;
 
   color: #000000;
-
 }
 
 .sneaker-card--condition {
@@ -151,7 +157,6 @@ body {
   line-height: 20px;
   
   color: #000000;
-
 }
 
 .sneaker-card--box {
@@ -219,7 +224,7 @@ body {
   width: 90%;
 } */
 
-.form-style-5{
+.form-style-5 {
 	max-width: 500px;
 	padding: 10px 20px;
 	background: #f4f7f8;
@@ -229,12 +234,12 @@ body {
 	border-radius: 8px;
 	font-family: Georgia, "Times New Roman", Times, serif;
 }
-.form-style-5 fieldset{
+.form-style-5 fieldset {
 	border: none;
   display: flex;
   justify-content: space-around;
 }
-.form-style-5 fieldset input{
+.form-style-5 fieldset input {
   margin-top: 0;
 }
 .form-style-5 legend {
@@ -285,7 +290,7 @@ body {
 .form-style-5 select:focus{
 	background: #d2d9dd;
 }
-.form-style-5 select{
+.form-style-5 select {
 	-webkit-appearance: menulist-button;
 	height:35px;
 }
@@ -391,8 +396,8 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  width: 50%;
+  margin: 10px auto;
+  width: 95%;
   height: 100%;
   background: white;
   border-radius: 8px;
@@ -402,24 +407,43 @@ body {
 
 .sneaker-card22 {
   padding: 5px;
-  margin: 10px;;
+  margin: 10px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+	background: rgba(255,255,255,.1);
+	border: none;
+	border-radius: 4px;
+	font-size: 15px;
+	margin: 0;
+	outline: 0;
+	padding: 10px;
+	width: 100%;
+	box-sizing: border-box; 
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+	background-color: #e8eeef;
+	color:#8a97a0;
+	-webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+	margin-bottom: 30px;
 }
 
-.sneaker-card22 > input {
-  border: none;
+.checkbox-container {
+  display: flex;
+  width: 90%;
+  margin-bottom: 30px;
+}
+.sneaker-card22.checkbox {
+  margin-bottom: 0;
+}
+.label-checkbox{
+  width: 50%;
 }
 
 .sneaker-card2 > label {
   display: grid;
   align-self: flex-start;
   font-size: 1.2em;
-  width: 90%;
   text-align: left;
-}
-
-.sneaker-card--img2 {
-  padding: 10px;
-  transition: all 0.5s ease;
 }
 
 .sneaker-card--img2:hover {
@@ -432,11 +456,46 @@ body {
 
 .sneaker-card--description2 {
   margin: 10px;
+}
 
+
+/* Button */
+.sneaker-card--save {
+  background-color: #89ED5B;
+  background-image: linear-gradient(-180deg, #00D775, #00BD68);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+  height: 44px;
+  line-height: 44px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 40%;
+  z-index: 9;
+  border: 0;
+  margin-left: 100px;
+  margin-top: 10px;
+}
+
+.sneaker-card--save:hover {
+  background: #00bd68;
 }
 
 .sneaker-card--size2 {
   margin: 10px;
+  width: 20%;
 }
 
 .sneaker-card--brand2 {
@@ -474,36 +533,65 @@ body {
   text-align: center;
 }
 
+.nosneakertext {
+  margin: 0 auto;
+  margin-top: 3em;
+  font-size: 1.8em;
+  width: 90%;
+  text-align: center;
+  font-style: italic;
+  color: #8a97a0;
+}
+
+@media screen and (min-width:768px) {
+  .sneaker-card2 {
+    display: grid;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 5px auto;
+    width: 95%;
+    height: 100%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    padding: 50px;
+  }
+  .edittumb {
+    min-width: 768px;
+  }
+}
+
 @media screen and (min-width: 1100px) {
   .sneakerContainer {
     /* height: 80vh; */
   }
+  .edittumb {
+    min-width: 1100px;
+    }
 }
 
-
-.chatbox-container {
-  height: 440px;
-  margin: 10px;
+@media screen and (max-width: 768px) {
+  .edittumb {
+    padding: 10px;
+    /* transition: all 0.5s ease; */
+    margin-bottom: 2rem;
+    width: 350px;
+    height: auto;
+  }
 }
 
-.welcome {
-  text-align: center;
-  margin: 20px;
-  font-size: 2rem;
-  font-family: 'Roboto', sans-serif;
+.profilepage {
+  min-height: 70vh;
 }
 
-.blocking-div-hide {
-  display: none;
-  height: 0;
-  width: 0;
-  -webkit-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
+#cloudinary_upload_button {
+  margin-bottom: 20px;
+
 }
 
-.biggest-div {
-  height: 100vh;
-  width: 100vw;
-  -webkit-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
+#cloudinary_upload_button:hover {
+  cursor: pointer;
+  background-color: #00bd68;
 }

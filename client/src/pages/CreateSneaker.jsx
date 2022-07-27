@@ -80,6 +80,8 @@ const CreateSneaker = () => {
     }
 
     return (
+        <>
+        <h1>Create Sneaker</h1>
         <div className="form-style-5">
             <form className="sneakerForm-container" action="" id="form" ref={form} onSubmit={(e) => submitHandler(e)} encType="multitype/form-data" >
                 <div className="sneakerForm--tandd">
@@ -119,9 +121,6 @@ const CreateSneaker = () => {
                     <option value="Others">Others</option>
                 </select>
                 <input type="text" placeholder="Original Price" name="originalprice" />
-                <label htmlFor="box">In Original Box
-                <input type="checkbox" name="box" id="box" />
-                </label>
                 <select name="wear" id="wear">
                     <option value="unused">Unused</option>
                     <option value="worn">Worn</option>
@@ -129,7 +128,7 @@ const CreateSneaker = () => {
                 </select>
                 <input type="text" placeholder="Color" name="color" />
                 <input type="text" placeholder="Category" name="category" />
-                <fieldset name="gender">
+                {/* <fieldset name="gender">
                     <label>Masculine
                     <input type="radio" name="gender" id="masc" value="masculine" />
                     </label>
@@ -139,7 +138,7 @@ const CreateSneaker = () => {
                     <label>Unisex
                     <input type="radio" name="gender" id="uni" value="unisex" />
                     </label>
-                </fieldset>
+                </fieldset> */}
                 <WidgetLoader />
                 <Widget 
                     cloudName={"durevqv22"}
@@ -180,10 +179,11 @@ const CreateSneaker = () => {
                         }
                       }}
                       ></Widget>
-                      <input readOnly="readonly" type="text" name="imgurl" id="imgurl" value={url}></input>
+                      <input readOnly="readonly" type="text" name="imgurl" id="imgurl" value={url ? 'Image Saved' : 'Upload image'}></input>
                 <button type="submit">List Sneaker</button>
             </form>
         </div>
+        </>
     );
 }
 

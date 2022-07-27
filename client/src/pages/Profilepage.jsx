@@ -34,6 +34,7 @@ const Profilepage = () => {
                 </div>
                 <div>
                     <h1 className="centered-text">Your collection</h1>
+                    {yourListings.length > 0 ? null : <h2 className="centered-text nosneakertext">You have no sneakers in your collection</h2>}
                     <div className="sneaker-card-container">
                     {yourListings.map(sneaker => {
                         return <Sneaker key={sneaker.id} sneaker={sneaker} />

@@ -6,10 +6,13 @@ import { useNavigate } from 'react-router-dom';
 
 const MainMenu = () => {
     const blocker = useRef(null);
+    const menu = useRef(null);
     // const checkBoxRef = useRef(null);
     const [checked, setChecked] = React.useState(false);
     const blockerFunc = () => {
         blocker.current.classList.toggle("blocking-div-hide");
+        menu.current.classList.toggle("menu-hide");
+
     }
     const navigate = useNavigate();
     const moveToMessenger = () => {
@@ -46,7 +49,7 @@ const MainMenu = () => {
         <label className="label">
         <input checked={checked} onChange={(e)=> setChecked(e.target.checked)} type='checkbox'></input>
         <span onClick={blockerFunc}className="menu"> <span className="hamburger"></span> </span>
-        <div className="main-nav--list">
+        <div className="main-nav--list menu-hide" ref={menu}>
             <p>
                 <NavLink to="/" className="main-nav--item" onClick={(e) => handleCheck(e)}>Home</NavLink>
             </p>
@@ -57,12 +60,12 @@ const MainMenu = () => {
             <p>
                 <NavLink to="/profile" className="main-nav--item" onClick={(e) => handleCheck(e)} >Profile</NavLink>
             </p>
-            <div className='nav-item'>
-            <Logoutbutton logout={logout} onClick={(e) => handleCheck(e)}/>            
-            </div>
             <p className='nav-item'>
              <button className='button-messenger' onClick={(e) => handleCheck(e)} >Messenger</button>
             </p>
+            <div className='nav-item'>
+            <Logoutbutton logout={logout} onClick={(e) => handleCheck(e)}/>            
+            </div>
             </>}
             {!isAuthenticated && <p>
                 <Link to="#" className="main-nav--item button-login" onClick={() => loginWithRedirect()}>Login</Link>
@@ -75,6 +78,5 @@ const MainMenu = () => {
         </div></>
     )
 }
-
 
 export default MainMenu;

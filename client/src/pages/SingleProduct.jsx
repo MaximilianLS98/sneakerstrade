@@ -4,9 +4,11 @@ import shoeImg from "../assets/images/shoe.png";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import InboxComponent from "../components/InboxComponent";
+import { useAuth0 } from "@auth0/auth0-react";
 import '../singleProduct.css';
 
 const SingleProduct = () => {
+    const { isAuthenticated } = useAuth0();
     const { id } = useParams();
     const sneakers = useSelector(state => state.sneakers);
 
@@ -16,8 +18,8 @@ const SingleProduct = () => {
     const navigate = useNavigate();
     
     return (
+        <>
         <section className="singleproduct-container">
-                <InboxComponent owner={sneaker.ownerid} name={sneaker.title}/>
             <div className="left-column">
                 <img className="singleProduct-image" src={sneaker.imgurl} alt={sneaker.name} />
             </div>
@@ -38,8 +40,9 @@ const SingleProduct = () => {
                     <button className="back-button" onClick={() => navigate(-1)}>Back</button>
                 </div>
             </div>
-            
         </section>
+            {isAuthenticated && <InboxComponent className="inboxcomp" owner={sneaker.ownerid} name={sneaker.title}/>}
+        </>
     );
 }
 

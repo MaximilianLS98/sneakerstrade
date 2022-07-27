@@ -28,7 +28,7 @@ const Home = () => {
         <div className="sneakerContainer">
             {!isAuthenticated && (
                 <div>
-                    <h3>Log in, or create an account</h3>
+                    <h3 className='text-logging'>Log in, or create an account</h3>
                     <Loginbutton />
                     {/* <h1>Welcome, {user.nickname}</h1> */}
                 </div>

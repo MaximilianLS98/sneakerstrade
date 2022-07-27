@@ -19,7 +19,8 @@ const EditSneaker = () => {
         brand: `${sneaker.brand}`,
         originalprice: `${sneaker.originalprice}`,
         box: `${sneaker.box}`,
-        wear: `${sneaker.wear}`
+        wear: `${sneaker.wear}`,
+        image: `${sneaker.imgurl}`
     });
 
     const handleChange  = (e) => {
@@ -47,7 +48,7 @@ const EditSneaker = () => {
     return (
         <form onSubmit={(e) => submitHandler(e)}>
         <div className="sneaker-card2">
-        <img className="sneaker-card--img2" src={shoeImg} alt="shoe" />
+        <img className="edittumb" src={formValue.image} alt="shoe" />
         <label>Title
         <input className="sneaker-card22 input2" type="text" value={formValue.title} name='title' onChange={handleChange} />
         </label>
@@ -59,9 +60,6 @@ const EditSneaker = () => {
         </label>
         <label>Original Price 
         <input className="sneaker-card22" type="text" value={formValue.originalprice} name='originalprice' onChange={handleChange} />
-        </label>
-        <label>In Box
-        <input className="sneaker-card22" type="checkbox" value={formValue.box} name='box' onChange={handleChange}/>
         </label>
         <div className="sneaker-card22">
         <label>Condition

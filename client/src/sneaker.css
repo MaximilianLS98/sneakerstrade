@@ -59,7 +59,7 @@ input {
     font-weight: 800;
     font-style: italic;
     color: rgba(255, 255, 255, 0.04);
-
+    display: none;
 }
 
 .container .card .imgBx {
@@ -181,7 +181,7 @@ input {
      background: #080481;
 }
 
-.container .card .contentBx a{
+.container .card .contentBx a {
     display: inline-block;
     padding: 10px 20px;
     background: #fff;
@@ -195,13 +195,13 @@ input {
     transition: .5s;
 }
 
-.container .card:hover .contentBx a{
+.container .card:hover .contentBx a {
     opacity: 1;
     transform: translateY(0px);
     transition-delay: .7s;
 } 
 
-.container .card .contentBx input{
+.container .card .contentBx input {
     display: inline-block;
     padding: 10px 20px;
     background: #fff;
@@ -214,7 +214,7 @@ input {
     transition: .5s;
 }
 
-.container .card:hover .contentBx input{
+.container .card:hover .contentBx input {
     opacity: 1;
     transform: translateY(0px);
     transition-delay: .7s;

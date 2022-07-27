@@ -36,24 +36,29 @@ header {
 
 .label .menu {
     position: absolute;
-    right: -100px;
-    top: -100px;
+    /* right: -100px; */
+    right: 35px; /* my add*/
+    /* top: -100px; */
+    top: 40px; /* my add*/
     z-index: 100;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    /* height: 200px; */
+    height: 100px;
     background: #FFF;
+    /* background: #263238; */
     border-radius: 50% 50% 50% 50%;
+    /* border-radius: 50px; */
     -webkit-transition: .5s ease-in-out;
     transition: .5s ease-in-out;
     box-shadow: 0 0 0 0 #FFF, 0 0 0 0 #FFF;
     cursor: pointer;
-    
   }
   
 .label .hamburger {
     position: absolute;
-    top: 135px;
-    left: 50px;
+    /* top: 135px; */
+    top: 50px;
+    left: 35px;
     width: 30px;
     height: 2px;
     background: #1BBFE9;
@@ -124,9 +129,20 @@ header {
 .label .main-nav--item {
     margin-bottom: 1em;
     display: block;
-    color: #f38630;
+    color: #344966;
     text-decoration: none;
     
+  }
+
+  .logout-button, .button-messenger, .login-button{
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    background-color: #344966;
+    color: white;
+    width: 80px;
+    border-style: none;
+    cursor: pointer;
   }
 
 @media (min-width: 768px) {
@@ -143,4 +159,8 @@ header {
 .active {
     color: #c5c5c5;
     text-decoration: underline;
+}
+
+.menu-hide {
+    display: none;
 }

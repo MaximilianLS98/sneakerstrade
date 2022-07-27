@@ -26,6 +26,7 @@ const BrandPage = () => {
         <div className="brand-page">
             <BrandButtons />
             <h1 className="centered-text brand-heading">{brand}</h1>
+            {!brandSneakers.length ? <h2 className="centered-text nosneakertext">No sneakers found for {brand}</h2> : null}
             <div className="sneaker-card-container">
             {brandSneakers.map(sneaker => {
                 return <Sneaker key={sneaker.id} sneaker={sneaker} />
