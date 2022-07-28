@@ -10,8 +10,6 @@ const CreateSneaker = () => {
 
     
     const successCallBack = (e) => {
-        console.log(e, "this is callback");
-        console.log(e.info.secure_url, "this is secure url");
         const secureUrl = e.info.secure_url;
         setUrl(secureUrl);
     }
@@ -19,7 +17,6 @@ const CreateSneaker = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    // const infoChange = (e) => {console.log(e.target.files[0])};
 
     const { user } = useAuth0();
 

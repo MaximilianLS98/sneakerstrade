@@ -593,8 +593,8 @@ h1 {
   }
 }
 
-.profilepage, .about-page {
-  min-height: 65vh;
+.profilepage, .about-page, .messager-container {
+  min-height: 70vh;
 }
 .about-container{
   text-align: center;

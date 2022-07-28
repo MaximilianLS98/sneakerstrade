@@ -30,13 +30,15 @@ const SingleProduct = () => {
                 <div className="product-details">
                     <p>Size: {sneaker.size}</p>
                     <p>Wear: {sneaker.wear}</p>
-                    <p>In Box: {sneaker.box}</p>
-                    <p>Owner: <Link to={`user/${sneaker.owner || sneaker.ownerid}`}>{sneaker.owner || sneaker.ownerid}</Link></p>
+                    <p>Color: {sneaker.color}</p>
+                    <p>Category: {sneaker.category}</p>
+                    {/* <p>Owner: <Link to={`user/${sneaker.owner || sneaker.ownerid}`}>{sneaker.owner || sneaker.ownerid}</Link></p> */}
                 </div>
                 <div className="product-price">
                     <span>Original price: {sneaker.originalprice}</span>
-                    <button className="back-button" onClick={() => navigate(-1)}>Back</button>
+                    
                 </div>
+                <button className="back-button" onClick={() => navigate(-1)}>Back</button>
             </div>
         </section>
             {isAuthenticated && <InboxComponent className="inboxcomp" owner={sneaker.ownerid} name={sneaker.title}/>}

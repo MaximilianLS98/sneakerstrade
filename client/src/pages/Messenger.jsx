@@ -3,7 +3,7 @@ import InboxComponent from "../components/InboxComponentProfile";
 
 const Messenger = (props) => {
     return (
-        <div>
+        <div className="messager-container">
             <InboxComponent />
         </div>
     );
