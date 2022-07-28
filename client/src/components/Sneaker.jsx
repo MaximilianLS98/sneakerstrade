@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
-import shoeImg from "../assets/images/shoe.png"; 
 import { useDispatch } from "react-redux";
 import { deleteSneaker } from "../features/sneakers/sneakerSlice";
 import { useAuth0 } from "@auth0/auth0-react";

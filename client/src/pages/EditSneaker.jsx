@@ -41,6 +41,7 @@ const EditSneaker = () => {
         }).then(res => res.json())
         .then(res => { dispatch(updateSneaker(res)); })
             .catch(err => console.log(err));
+            alert("Sneaker updated!");
             navigate("/");
 
     }

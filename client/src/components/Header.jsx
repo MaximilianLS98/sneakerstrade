@@ -16,6 +16,7 @@ const Header = () => {
     return (
         <header className="headerContainer">
             <img src={whiteLogo} className='logo' alt="sneakerspot logo" onClick={(e) => redirectHome(e)} />
+            <p className="header-tagline">A place to barter and banter</p>
             <MainMenu />
         </header>
     );

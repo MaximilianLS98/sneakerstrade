@@ -27,7 +27,15 @@ h1 {
 .centered-text {
   text-align: center;
 }
-
+.title-about{
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
+}
+.p-about{
+  font-size: 1.5rem;
+  /* max-width: 50%; */
+  text-align: center;
+}
 .brand-heading {
   color: #263238;
   /* text-decoration: underline; */
@@ -580,10 +588,18 @@ h1 {
     width: 350px;
     height: auto;
   }
+  .about-container{
+  
+  }
 }
 
-.profilepage {
-  min-height: 70vh;
+.profilepage, .about-page {
+  min-height: 65vh;
+}
+.about-container{
+  text-align: center;
+  margin: 0 auto;
+  max-width: 50%;
 }
 
 #cloudinary_upload_button {

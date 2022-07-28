@@ -145,6 +145,16 @@ header {
     cursor: pointer;
   }
 
+  .header-tagline{
+    color: white;
+    /* rotate 45 degrees */
+    -webkit-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+    font-style: italic;
+    position: absolute;
+    top: 9rem
+  }
+
 @media (min-width: 768px) {
     /* .main-nav {
         flex-direction: column;

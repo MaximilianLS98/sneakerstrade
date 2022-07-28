@@ -14,6 +14,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Messenger from './pages/Messenger';
 import Blocker from './components/Blocker';
+import About from './pages/About';
 import './App.css';
 
 
@@ -26,6 +27,7 @@ function App() {
       <Blocker />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
           <Route path="/sneaker/:id" element={<SingleProduct />} />
           <Route path="/login" element={<Login />} />
           <Route path="/create" element={<CreateSneaker />} />

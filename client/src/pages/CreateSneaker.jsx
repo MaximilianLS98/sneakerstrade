@@ -76,6 +76,7 @@ const CreateSneaker = () => {
         .then(res => { dispatch(addSneaker(res)); })
             .then(res => console.log(res))
             .catch(err => console.log(err));
+        alert("Sneaker added!");
         navigate("/");
     }
 
@@ -128,20 +129,9 @@ const CreateSneaker = () => {
                 </select>
                 <input type="text" placeholder="Color" name="color" />
                 <input type="text" placeholder="Category" name="category" />
-                {/* <fieldset name="gender">
-                    <label>Masculine
-                    <input type="radio" name="gender" id="masc" value="masculine" />
-                    </label>
-                    <label>Feminine
-                    <input type="radio" name="gender" id="fem" value="feminine" />
-                    </label>
-                    <label>Unisex
-                    <input type="radio" name="gender" id="uni" value="unisex" />
-                    </label>
-                </fieldset> */}
                 <WidgetLoader />
                 <Widget 
-                    cloudName={"durevqv22"}
+                    cloudName={"dvzpgda93"}
                     uploadPreset={"sneaker-images"}
                     multiple={false}
                     buttonText={"Upload Image"}

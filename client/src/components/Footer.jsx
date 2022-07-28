@@ -5,7 +5,7 @@ const Footer = () => {
         <footer>
             <div className="footer-container">
                 {/* create a footer with a nice link (without using bootstrap) */}
-                <p className="footer-text">&copy; 2022 Sneaker Store</p>
+                <p className="footer-text">&copy; 2022 SneakerSpot</p>
             </div>
         </footer>
     );

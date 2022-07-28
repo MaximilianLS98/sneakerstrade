@@ -20,19 +20,6 @@ const MainMenu = () => {
     }
     const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
-    // const checkCheckBox = () => {
-    //     // const checkBox = checkBoxRef;
-    //     // if (checkBox.checked) {
-    //     //     checkBox.current.checked = false;
-    //     //     console.log("not checked");
-    //     //     console.log(checkBoxRef.current.checked, "this should be unchecked");
-
-    //     // } else {
-    //     //     checkBox.current.checked = true;
-    //     //     console.log("checked", checkBox.checked)
-    //     //     console.log(checkBoxRef.current.checked, "this is ref");
-    //     // }
-    // }
 
     const handleCheck = (e) => {
         setChecked(!checked);
@@ -53,13 +40,18 @@ const MainMenu = () => {
             <p>
                 <NavLink to="/" className="main-nav--item" onClick={(e) => handleCheck(e)}>Home</NavLink>
             </p>
+            <p>
+                <NavLink to="/about" className="main-nav--item" onClick={(e) => handleCheck(e)}>About</NavLink>
+            </p>
             {isAuthenticated && <>
             <p>
                 <NavLink className={( { isActive } ) => (isActive) ? 'active main-nav--item' : 'inactive main-nav--item'} to="/create" onClick={(e) => handleCheck(e)}>Create Sneaker</NavLink>
             </p>
+            
             <p>
                 <NavLink to="/profile" className="main-nav--item" onClick={(e) => handleCheck(e)} >Profile</NavLink>
             </p>
+            
             <p className='nav-item'>
              <button className='button-messenger' onClick={(e) => handleCheck(e)} >Messenger</button>
             </p>
